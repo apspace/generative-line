@@ -83,6 +83,7 @@ header {
 button {
 	padding: 8px 24px;
 	width: 100%;
+	background-color: #dfdfdf;
 	font-size: 12px;
 	margin: 0;
 	border: 0;
