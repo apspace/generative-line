@@ -1,9 +1,11 @@
 let r1, r2, r3, r4, n;
 let offset = 0;
+let bg;
 let button, controls;
 let slider, dSlider, pSlider, dButton;
 
 function setup(){
+  bg = color('#f1f1f1');
   controls = createDiv().addClass('controls');
 
   dSlider = createDiv();
@@ -20,12 +22,10 @@ function setup(){
   button = createButton('Save Image');
   button.parent(dButton);
 
-  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas = createCanvas(600, 600, WEBGL);
   // canvas.parent(controls);
-
-  // canvas.position(windowWidth/2-canvas.width/2, windowHeight/2-canvas.height/2);
   // canvas.style('z-index', '-1');
-  background(245);
+  background(bg);
   stroke(0);
   strokeWeight(10);
 
@@ -58,7 +58,7 @@ function reset(){
     r2 = round(random(1,n));
     r3 = round(random(1,n));
     r4 = round(random(1,n));
-    background(245);
+    background(bg);
 
 }
 
