@@ -43,9 +43,10 @@ function setup(){
 
 function draw(){
   n = slider.value();
+
   for (let i=0; i<20; i++){
-  let r6 = 120 * (sin(radians(offset*r1))+sin(radians(offset*r2)));
-  let r7 = 120 * (sin(radians(offset*r3))+cos(radians(offset*r4)));
+  let r6 = 100 * (sin(radians(offset*r1))+sin(radians(offset*r2))+cos(radians(offset*r1)));
+  let r7 = 100 * (sin(radians(offset*r3))+cos(radians(offset*r4)));
   point(r6, r7);
   offset += 0.1;
   }
