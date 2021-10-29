@@ -1,22 +1,37 @@
 let r1, r2, r3, r4, n;
 let offset = 0;
-let button;
-let slider, d1, d2;
+let button, controls;
+let slider, dSlider, pSlider, dButton;
 
 function setup(){
-  canvas = createCanvas(600, 600, WEBGL);
-  canvas.position(windowWidth/2-canvas.width/2, windowHeight/2-canvas.height/2);
+  controls = createDiv().addClass('controls');
+
+  dSlider = createDiv();
+  dSlider.parent(controls);
+  dSlider.addClass('slider');
+  slider = createSlider(1, 10, 3, 1);
+  pSlider = createP();
+  pSlider.parent(dSlider);
+  slider.parent(dSlider);
+
+  dButton = createDiv();
+  dButton.parent(controls);
+  dButton.addClass('button');
+  button = createButton('Save Image');
+  button.parent(dButton);
+
+  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  // canvas.parent(controls);
+
+  // canvas.position(windowWidth/2-canvas.width/2, windowHeight/2-canvas.height/2);
+  // canvas.style('z-index', '-1');
   background(245);
   stroke(0);
   strokeWeight(10);
 
-  d1 = createDiv();
-  slider = createSlider(1, 10, 3, 1);
-  d2 = createDiv();
-  d2.style('padding-top', '12px');
-  button = createButton('Save');
   button.mousePressed(save);
   canvas.mousePressed(reset);
+
 
   n = 3;
   r1 = round(random(1,n));
@@ -34,7 +49,7 @@ function draw(){
   point(r6, r7);
   offset += 0.1;
   }
-  d1.html("Complexity: "+slider.value());
+  pSlider.html('Complexity: '+slider.value());
 
 }
 
@@ -48,5 +63,5 @@ function reset(){
 }
 
 function save(){
-  saveCanvas('canvas', 'png');
+  save(slider,'my_canvas','png');
 }
