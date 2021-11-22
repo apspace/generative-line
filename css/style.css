@@ -94,4 +94,8 @@ button {
 	border-radius: 4px;
 }
 
-d
+.info {
+	position: absolute;
+	left: 24px;
+	top: 164px;
+}
